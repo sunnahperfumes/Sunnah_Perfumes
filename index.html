@@ -13,8 +13,8 @@
         .cart-btn:hover { background: #e6c150; }
         .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
         .perfume-card { background: #161616; border: 1px solid #333; border-radius: 12px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .perfume-img-container { position: relative; width: 100%; padding-top: 100%; /* 1:1 Aspect Ratio */ }
-        .perfume-img { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; cursor: pointer; transition: transform 0.3s; }
+        .perfume-img-container { width: 100%; background: #000; text-align: center; }
+        .perfume-img { width: 100%; height: auto; display: block; cursor: pointer; transition: transform 0.3s; }
         .perfume-img:hover { transform: scale(1.02); }
         .perfume-content { padding: 20px; text-align: right; }
         .title-badge { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
@@ -51,7 +51,7 @@
         <!-- عطر عسلجي -->
         <div class="perfume-card">
             <div class="perfume-img-container">
-                <img src="https://i.ibb.co/J7c0Q7d/image-1.png" alt="صورة عطر عَسْلَجِي" class="perfume-img" onclick="alert('مزيج استثنائي يجمع بين حلاوة الكراميل الغنية والنفحات العسلية الساخرة. يبدأ بانفجار سكري دافئ من الكراميل، وينبض بقلب عطري ساحر من العسل والكومارين، ليختتم بقاعدة عميقة وناعمة من المسك الأبيض والفانيليا تدوم طويلاً لتترك انطباعاً لا يُنسى.')">
+                <img src="https://images.unsplash.com/photo-1547887537-6158d64c35b3?auto=format&fit=crop&w=800&q=80" alt="صورة عطر عَسْلَجِي" class="perfume-img" onclick="alert('مزيج استثنائي يجمع بين حلاوة الكراميل الغنية والنفحات العسلية الساخرة. يبدأ بانفجار سكري دافئ من الكراميل، وينبض بقلب عطري ساحر من العسل والكومارين، ليختتم بقاعدة عميقة وناعمة من المسك الأبيض والفانيليا تدوم طويلاً لتترك انطباعاً لا يُنسى.')">
             </div>
             <div class="perfume-content">
                 <div class="title-badge">
@@ -117,8 +117,6 @@
 
             cart.push({ name: 'عطر عَسلَجِي', size: size, price: price });
             updateCartUI();
-            // يمكنك إلغاء تعليق السطر التالي لإظهار رسالة تأكيد
-            // alert('تمت إضافة العطر إلى السلة!');
         }
 
         function updateCartUI() {
@@ -158,7 +156,7 @@
             });
             text += `\nالإجمالي الكلي: ${total} جنيه مصري`;
 
-            const phone = "201097205941"; // رقم الواتساب الخاص بك
+            const phone = "201097205941";
             const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
             window.open(url, '_blank');
         }
