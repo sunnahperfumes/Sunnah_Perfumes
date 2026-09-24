@@ -6,16 +6,154 @@
     <title>سُنَّة | للعطور الفاخرة</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background-color: #0b0b0b; color: #f3f3f3; text-align: center; padding-top: 80px; }
-        h1 { color: #d4af37; font-size: 42px; margin-bottom: 10px; letter-spacing: 2px; }
-        p { color: #aaa; font-size: 18px; margin-bottom: 35px; }
-        .btn { background-color: #25d366; color: white; padding: 14px 35px; font-size: 18px; text-decoration: none; border-radius: 30px; font-weight: bold; display: inline-block; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3); }
-        .btn:hover { background-color: #20ba5a; }
+        body { background-color: #0b0b0b; color: #f3f3f3; padding-bottom: 80px; }
+        header { background: #141414; padding: 20px; text-align: center; border-bottom: 2px solid #d4af37; position: sticky; top: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; max-width: 900px; margin: 0 auto; }
+        h1 { color: #d4af37; font-size: 28px; letter-spacing: 2px; }
+        .cart-btn { background: #d4af37; color: #0b0b0b; padding: 8px 15px; border-radius: 20px; font-weight: bold; cursor: pointer; border: none; font-size: 14px; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 15px; }
+        .perfume-card { background: #161616; border: 1px solid #333; border-radius: 12px; overflow: hidden; margin-bottom: 25px; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .perfume-img { width: 100%; height: auto; display: block; cursor: pointer; transition: transform 0.3s; }
+        .perfume-img:hover { transform: scale(1.02); }
+        .perfume-content { padding: 20px; text-align: right; }
+        .title-badge { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+        .perfume-title { color: #d4af37; font-size: 24px; }
+        .badge { background: #333; color: #aaa; font-size: 12px; padding: 4px 10px; border-radius: 6px; }
+        .inspired { color: #888; font-size: 14px; margin-bottom: 15px; }
+        .desc { color: #ccc; font-size: 15px; line-height: 1.6; margin-bottom: 20px; }
+        .sizes-box { margin-bottom: 20px; }
+        .sizes-box label { display: block; margin-bottom: 8px; font-weight: bold; color: #d4af37; }
+        select { width: 100%; padding: 10px; background: #222; color: #fff; border: 1px solid #444; border-radius: 6px; font-size: 16px; margin-bottom: 15px; }
+        .btn-buy { background-color: #25d366; color: white; width: 100%; padding: 12px; font-size: 16px; text-align: center; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: background 0.2s; }
+        .btn-buy:hover { background-color: #20ba5a; }
+        .btn-disabled { background-color: #444 !important; color: #888 !important; cursor: not-allowed; }
+        .aging-alert { background: #2a1b00; border: 1px solid #d4af37; color: #ffd700; padding: 12px; border-radius: 8px; text-align: center; font-weight: bold; margin-bottom: 15px; font-size: 14px; }
+        /* Modal السلة */
+        .modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 1000; justify-content: center; align-items: center; }
+        .modal-content { background: #181818; padding: 25px; border-radius: 12px; width: 90%; max-width: 400px; border: 1px solid #d4af37; text-align: right; color: #fff; }
+        .modal-content h3 { color: #d4af37; margin-bottom: 15px; text-align: center; }
+        .cart-item { display: flex; justify-content: space-between; margin-bottom: 10px; border-bottom: 1px solid #333; padding-bottom: 8px; font-size: 14px; }
+        .close-modal { background: #444; color: #fff; border: none; padding: 8px; width: 100%; margin-top: 15px; border-radius: 6px; cursor: pointer; }
     </style>
 </head>
 <body>
-    <h1>سُنَّة</h1>
-    <p>للعطور الفاخرة.. قريباً عرض المجموعات</p>
-    <a href="https://wa.me/201097205941?text=مرحباً، أرغب في الاستفسار عن عطور براند سُنَّة الفاخرة." class="btn" target="_blank">اطلب عبر واتساب</a>
+
+    <header>
+        <h1>سُنَّة</h1>
+        <button class="cart-btn" onclick="toggleCart()">🛒 السلة (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <div class="container">
+        <!-- عطر عسلجي -->
+        <div class="perfume-card">
+            <img src="https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?auto=format&fit=crop&w=800&q=80" alt="عطر عسلجي" class="perfume-img" onclick="alert('مزيج استثنائي يجمع بين حلاوة الكراميل الغنية والنفحات العسلية الساخرة. يبدأ بانفجار سكري دافئ من الكراميل، وينبض بقلب عطري ساحر من العسل والكومارين، ليختتم بقاعدة عميقة وناعمة من المسك الأبيض والفانيليا تدوم طويلاً لتترك انطباعاً لا يُنسى.')">
+            <div class="perfume-content">
+                <div class="title-badge">
+                    <h2 class="perfume-title">عَسلَجِي</h2>
+                    <span class="badge">جنسين (Unisex)</span>
+                </div>
+                <div class="inspired">Inspired by Bianco Latte perfume</div>
+                <p class="desc">مزيج استثنائي يجمع بين حلاوة الكراميل الغنية والنفحات العسلية الساخرة. يبدأ بانفجار سكري دافئ من الكراميل، وينبض بقلب عطري ساحر من العسل والكومارين، ليختتم بقاعدة عميقة وناعمة من المسك الأبيض والفانيليا تدوم طويلاً لتترك انطباعاً لا يُنسى.</p>
+                
+                <!-- عداد التعتيق -->
+                <div id="agingAlert" class="aging-alert">⏳ هذا العطر تحت التعتيق.. متاح للشراء تلقائياً يوم 17 أكتوبر 2026</div>
+
+                <div class="sizes-box">
+                    <label>اختر الحجم:</label>
+                    <select id="sizeSelect">
+                        <option value="30|190">30 مل - 190 جنيه</option>
+                        <option value="50|265">50 مل - 265 جنيه</option>
+                        <option value="100|430">100 مل - 430 جنيه</option>
+                    </select>
+                </div>
+
+                <button id="buyBtn" class="btn-buy btn-disabled" onclick="addToCart()" disabled>قريباً بعد انتهاء التعتيق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- نافذة السلة -->
+    <div id="cartModal" class="modal">
+        <div class="modal-content">
+            <h3>سلة المشتريات</h3>
+            <div id="cartItemsList" style="max-height: 200px; overflow-y: auto; margin-bottom: 15px;">
+                <p style="text-align: center; color: #777;">السلة فارغة</p>
+            </div>
+            <div style="font-weight: bold; margin-bottom: 15px; display: flex; justify-content: space-between;">
+                <span>الإجمالي:</span>
+                <span><span id="totalPrice">0</span> جنيه</span>
+            </div>
+            <button class="btn-buy" onclick="checkoutWhatsApp()" style="margin-bottom: 5px;">إتمام الطلب عبر واتساب</button>
+            <button class="close-modal" onclick="toggleCart()">إغلاق</button>
+        </div>
+    </div>
+
+    <script>
+        // نظام التعتيق التلقائي (تاريخ الفتح: 17 أكتوبر 2026)
+        const targetDate = new Date('2026-10-17T00:00:00').getTime();
+        const now = new Date().getTime();
+        
+        if (now >= targetDate) {
+            document.getElementById('agingAlert').style.display = 'none';
+            const btn = document.getElementById('buyBtn');
+            btn.classList.remove('btn-disabled');
+            btn.innerText = 'إضافة إلى السلة';
+            btn.removeAttribute('disabled');
+        }
+
+        let cart = [];
+
+        function addToCart() {
+            const select = document.getElementById('sizeSelect');
+            const val = select.value.split('|');
+            const size = val[0] + ' مل';
+            const price = parseInt(val[1]);
+
+            cart.push({ name: 'عطر عَسلَجِي', size: size, price: price });
+            updateCartUI();
+            alert('تمت إضافة العطر إلى السلة بنجاح!');
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const list = document.getElementById('cartItemsList');
+            let total = 0;
+
+            if (cart.length === 0) {
+                list.innerHTML = '<p style="text-align: center; color: #777;">السلة فارغة</p>';
+                document.getElementById('totalPrice').innerText = 0;
+                return;
+            }
+
+            list.innerHTML = '';
+            cart.forEach((item, index) => {
+                total += item.price;
+                list.innerHTML += `<div class="cart-item"><span>${item.name} (${item.size})</span><span>${item.price} ج</span></div>`;
+            });
+            document.getElementById('totalPrice').innerText = total;
+        }
+
+        function toggleCart() {
+            const modal = document.getElementById('cartModal');
+            modal.style.display = modal.style.display === 'flex' ? 'none' : 'flex';
+        }
+
+        function checkoutWhatsApp() {
+            if (cart.length === 0) {
+                alert('السلة فارغة!');
+                return;
+            }
+            let text = "مرحباً، أرغب في طلب العطور الآتية من براند سُنَّة:\n\n";
+            let total = 0;
+            cart.forEach((item, index) => {
+                text += `${index + 1}. ${item.name} - الحجم: ${item.size} - السعر: ${item.price} جنيه\n`;
+                total += item.price;
+            });
+            text += `\nالإجمالي الكلي: ${total} جنيه`;
+
+            const phone = "201097205941";
+            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
+            window.open(url, '_blank');
+        }
+    </script>
 </body>
 </html>
